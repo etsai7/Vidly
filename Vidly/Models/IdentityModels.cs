@@ -20,6 +20,13 @@ namespace Vidly.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // Represents the customer table in database
+        // Db Context is now aware of Customers class
+        // After this, in Nuget Package Manager Console type:
+        //  add-migration InitialModel -force
+        //  update-database
+        public DbSet<Customer> Customers { get; set;}
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
